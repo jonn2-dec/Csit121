@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sources - Accessible Name and Description Computation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header>
+        <h1>Accessible Name and Description Computation 1.1</h1>
+        <button class="openbtn" onclick="openNav()" aria-expanded="false" aria-controls="mySidenav" aria-label="Open navigation menu">☰ Menu</button>
+        <div id="mySidenav" class="sidenav" aria-label="Main navigation" aria-hidden="true">
+            <button class="closebtn" onclick="closeNav()" aria-label="Close navigation menu">&times;</button>
+            <a href="index.html">What is it?</a>
+            <a href="imporant.html">Why is it important?</a>
+            <a href="usage.html">How is it used?</a>
+            <a href="source.html">Sources</a>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <h2>References &amp; Sources</h2>
+
+        <ul>
+            <li>Assistive Technology Service Provider Interface (AT-SPI). (n.d.). The GNOME Project. Retrieved from <a href="https://developer.gnome.org/libatspi/stable/">https://developer.gnome.org/libatspi/stable/</a></li>
+
+            <li>Accessibility Toolkit (ATK). (n.d.). The GNOME Project. Retrieved from <a href="https://developer.gnome.org/atk/stable/">https://developer.gnome.org/atk/stable/</a></li>
+
+            <li>Apple Inc. (n.d.). The NSAccessibility Protocol for macOS (AXAPI). Retrieved from <a href="https://developer.apple.com/documentation/appkit/nsaccessibility">https://developer.apple.com/documentation/appkit/nsaccessibility</a></li>
+            
+            <li>Diggs, J., Scheuhammer, J., Schwerdtfeger, R., Cooper, M., Snow-Weaver, A., &amp; Leventhal, A. (2017). <i>Core Accessibility API Mappings 1.1</i>. W3C. <a href="https://www.w3.org/TR/core-aam-1.1/">https://www.w3.org/TR/core-aam-1.1/</a></li>
+
+            <li>Bos, B., Çelik, T., Hickson, I., &amp; Lie, H. W. (2011). <i>Cascading Style Sheets Level 2 Revision 1 (CSS 2.1) Specification</i>. W3C. <a href="https://www.w3.org/TR/CSS2/">https://www.w3.org/TR/CSS2/</a></li>
+
+            <li>Linux Foundation. (n.d.). <i>IAccessible2</i>. <a href="https://www.linuxfoundation.org/collaborate/workgroups/accessibility/iaccessible2">https://www.linuxfoundation.org/collaborate/workgroups/accessibility/iaccessible2</a></li>
+
+            <li>Microsoft Corporation. (n.d.). <i>Microsoft Active Accessibility (MSAA) 2.0</i>. <a href="https://msdn.microsoft.com/en-us/library/ms697707.aspx">https://msdn.microsoft.com/en-us/library/ms697707.aspx</a></li>
+
+            <li>Bradner, S. (1997). <i>Key words for use in RFCs to indicate requirement levels</i> (RFC 2119). IETF. <a href="https://tools.ietf.org/html/rfc2119">https://tools.ietf.org/html/rfc2119</a></li>
+
+            <li>Microsoft Corporation. (n.d.). <i>UI Automation</i>. <a href="https://msdn.microsoft.com/en-us/library/ee684009(v=vs.85).aspx">https://msdn.microsoft.com/en-us/library/ee684009(v=vs.85).aspx</a></li>
+
+            <li>Microsoft Corporation. (n.d.). <i>The IAccessibleEx Interface (UIA-Express)</i>. <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/dd561898(v=vs.85).aspx">https://msdn.microsoft.com/en-us/library/windows/desktop/dd561898(v=vs.85).aspx</a></li>
+
+            <li>Diggs, J., McCarron, S., Cooper, M., Schwerdtfeger, R., &amp; Craig, J. (2017). <i>Accessible Rich Internet Applications (WAI-ARIA) 1.1</i>. W3C. <a href="https://www.w3.org/TR/wai-aria-1.1/">https://www.w3.org/TR/wai-aria-1.1/</a></li>
+
+            <li>Scheuhammer, J., &amp; Cooper, M. (2014). <i>WAI-ARIA 1.0 User Agent Implementation Guide</i>. W3C. <a href="https://www.w3.org/TR/wai-aria-implementation/">https://www.w3.org/TR/wai-aria-implementation/</a></li>
+
+            <li>Kirkpatrick, A., O'Connor, J., Campbell, A., &amp; Cooper, M. (2018). <i>Web Content Accessibility Guidelines (WCAG) 2.1</i>. W3C. <a href="https://www.w3.org/TR/WCAG21/">https://www.w3.org/TR/WCAG21/</a></li>
+        </ul>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Daniel Hung</p>
+    </footer>
+
+    <script>
+        function openNav() {
+            const nav = document.getElementById("mySidenav");
+            nav.style.width = "250px";
+            nav.setAttribute('aria-hidden', 'false');
+            document.querySelector('.openbtn').setAttribute('aria-expanded', 'true');
+            document.querySelector('.sidenav a').focus();
+        }
+
+        function closeNav() {
+            const nav = document.getElementById("mySidenav");
+            nav.style.width = "0";
+            nav.setAttribute('aria-hidden', 'true');
+            document.querySelector('.openbtn').setAttribute('aria-expanded', 'false');
+            document.querySelector('.openbtn').focus();
+        }
+    </script>
+</body>
+</html>

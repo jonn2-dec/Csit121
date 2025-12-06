@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why It's Important - Accessible Name and Description Computation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header>
+        <h1>Accessible Name and Description Computation 1.1</h1>
+        <button class="openbtn" onclick="openNav()" aria-expanded="false" aria-controls="mySidenav" aria-label="Open navigation menu">☰ Menu</button>
+        <div id="mySidenav" class="sidenav" aria-label="Main navigation" aria-hidden="true">
+            <button class="closebtn" onclick="closeNav()" aria-label="Close navigation menu">&times;</button>
+            <a href="index.html">What is it?</a>
+            <a href="imporant.html">Why is it important?</a>
+            <a href="usage.html">How is it used?</a>
+            <a href="source.html">Sources</a>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <h2>Why is Accessible Name and Description Computation 1.1 Important?</h2>
+        
+        <p>The Accessible Name and Description Computation (ACC Name) specification is crucial for several reasons:</p>
+        
+        <h3>For Users with Disabilities:</h3>
+        <ul>
+            <li><strong>Screen Reader Users:</strong> Provides accurate, predictable names for interactive elements.</li>
+            <li><strong>Voice Control Users:</strong> Enables reliable voice commands by providing consistent element names.</li>
+            <li><strong>Cognitive Disabilities:</strong> Offers clear, consistent labeling that reduces confusion.</li>
+        </ul>
+
+        <h3>For Developers:</h3>
+        <ul>
+            <li><strong>Standardized Approach:</strong> Provides clear rules for determining accessible names.</li>
+            <li><strong>Reduced Ambiguity:</strong> Eliminates guesswork about which naming method takes precedence.</li>
+            <li><strong>Cross-Platform Consistency:</strong> Ensures consistent behavior across different browsers and assistive technologies.</li>
+        </ul>
+
+        <h3>For the Web Ecosystem:</h3>
+        <ul>
+            <li><strong>Legal Compliance:</strong> Helps meet WCAG 2.1 requirements and accessibility laws.</li>
+            <li><strong>Better User Experience:</strong> Improves usability for everyone, not just users with disabilities.</li>
+            <li><strong>Future-Proofing:</strong> Creates a foundation for new technologies and interaction patterns.</li>
+        </ul>
+
+        <div class="example-container">
+            <h4>Real-World Impact:</h4>
+            <p>Without proper accessible names, a blind user might hear "button" instead of "Add to Cart" or "Submit Form," making navigation confusing and frustrating.</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Daniel Hung</p>
+    </footer>
+
+    <script>
+        function openNav() {
+            const nav = document.getElementById("mySidenav");
+            nav.style.width = "250px";
+            nav.setAttribute('aria-hidden', 'false');
+            document.querySelector('.openbtn').setAttribute('aria-expanded', 'true');
+            document.querySelector('.sidenav a').focus();
+        }
+
+        function closeNav() {
+            const nav = document.getElementById("mySidenav");
+            nav.style.width = "0";
+            nav.setAttribute('aria-hidden', 'true');
+            document.querySelector('.openbtn').setAttribute('aria-expanded', 'false');
+            document.querySelector('.openbtn').focus();
+        }
+    </script>
+</body>
+</html>

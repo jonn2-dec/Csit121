@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessible Name and Description Computation Example</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header>
+        <h1>Accessible Name and Description Computation 1.1</h1>
+        <button class="openbtn" onclick="openNav()" aria-expanded="false" aria-controls="mySidenav" aria-label="Open navigation menu">☰ Menu</button>
+        <div id="mySidenav" class="sidenav" aria-label="Main navigation" aria-hidden="true">
+            <button class="closebtn" onclick="closeNav()" aria-label="Close navigation menu">&times;</button>
+            <a href="index.html">What is it?</a>
+            <a href="imporant.html">Why is it important?</a>
+            <a href="usage.html">How is it used?</a>
+            <a href="source.html">Sources</a>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <h2>Examples for Accessible Name &amp; Description Computation 1.1</h2>
+        
+        <div class="example-container">
+            <h3>1. aria-labelledby (Step 2A)</h3>
+            <p id="lbl1">Search Button</p>
+            <button aria-labelledby="lbl1">🔍</button>
+        </div>
+
+        <div class="example-container">
+            <h3>2. aria-describedby (Step 2A for descriptions)</h3>
+            <button aria-describedby="info1">Submit</button>
+            <p id="info1">This sends your form data.</p>
+        </div>
+
+        <div class="example-container">
+            <h3>3. aria-label (Step 2B)</h3>
+            <button aria-label="Close Menu">X</button>
+        </div>
+
+        <div class="example-container">
+            <h3>4. Native label element (Step 2C)</h3>
+            <label for="emailField">Email Address</label>
+            <input id="emailField" type="email">
+        </div>
+
+        <div class="example-container">
+            <h3>5. Embedded control example (Step 2D)</h3>
+            <label>
+                Volume:
+                <input type="range" min="0" max="100" value="40">
+            </label>
+        </div>
+
+        <div class="example-container">
+            <h3>6. Name from content + CSS before/after (Step 2F)</h3>
+            <button class="button-with-css">Download File</button>
+        </div>
+
+        <div class="example-container">
+            <h3>7. Text Node only (Step 2H)</h3>
+            <p>This is just normal text content.</p>
+        </div>
+
+        <div class="example-container">
+            <h3>8. Tooltip attribute (Step 2J)</h3>
+            <div title="This is a tooltip message.">Hover for tooltip</div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Daniel Hung</p>
+    </footer>
+
+    <script>
+        function openNav() {
+            const nav = document.getElementById("mySidenav");
+            nav.style.width = "250px";
+            nav.setAttribute('aria-hidden', 'false');
+            document.querySelector('.openbtn').setAttribute('aria-expanded', 'true');
+            document.querySelector('.sidenav a').focus();
+        }
+
+        function closeNav() {
+            const nav = document.getElementById("mySidenav");
+            nav.style.width = "0";
+            nav.setAttribute('aria-hidden', 'true');
+            document.querySelector('.openbtn').setAttribute('aria-expanded', 'false');
+            document.querySelector('.openbtn').focus();
+        }
+
+        document.addEventListener('click', function(event) {
+            const sidenav = document.getElementById('mySidenav');
+            const openbtn = document.querySelector('.openbtn');
+            
+            if (sidenav.style.width === '250px' && 
+                !sidenav.contains(event.target) && 
+                !openbtn.contains(event.target)) {
+                closeNav();
+            }
+        });
+    </script>
+</body>
+</html>

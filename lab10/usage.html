@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How It's Used - Accessible Name and Description Computation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header>
+        <h1>Accessible Name and Description Computation 1.1</h1>
+        <button class="openbtn" onclick="openNav()" aria-expanded="false" aria-controls="mySidenav" aria-label="Open navigation menu">☰ Menu</button>
+        <div id="mySidenav" class="sidenav" aria-label="Main navigation" aria-hidden="true">
+            <button class="closebtn" onclick="closeNav()" aria-label="Close navigation menu">&times;</button>
+            <a href="index.html">What is it?</a>
+            <a href="imporant.html">Why is it important?</a>
+            <a href="usage.html">How is it used?</a>
+            <a href="source.html">Sources</a>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <h2>How Accessible Name and Description Computation is Used</h2>
+        
+        <h3>The Computation Process</h3>
+        <p>The specification defines a precise algorithm that browsers and assistive technologies follow to determine an element's accessible name:</p>
+        
+        <ol>
+            <li><strong>Step 1: Check for explicit labels</strong> (aria-labelledby, aria-label).</li>
+            <li><strong>Step 2: Check native HTML semantics</strong> (label element, alt attribute).</li>
+            <li><strong>Step 3: Check content</strong> (text nodes, placeholder).</li>
+            <li><strong>Step 4: Fallback mechanisms</strong> (title attribute, etc.).</li>
+        </ol>
+
+        <h3>Practical Implementation Examples</h3>
+        
+        <div class="example-container">
+            <h4>Priority Order in Practice:</h4>
+            <pre><code>&lt;button aria-label="Close" title="Close window"&gt;X&lt;/button&gt;
+<!-- Accessible name: "Close" (aria-label wins) -->
+
+&lt;img src="icon.png" alt="Settings" title="Configuration"&gt;
+<!-- Accessible name: "Settings" (alt attribute wins) -->
+
+&lt;label for="name"&gt;Full Name&lt;/label&gt;
+&lt;input id="name" aria-label="Your name"&gt;
+<!-- Accessible name: "Your name" (aria-label overrides label) --></code></pre>
+        </div>
+
+        <h3>Browser and AT Integration</h3>
+        <p>Browsers implement the algorithm and expose the computed name through accessibility APIs:</p>
+        <ul>
+            <li><strong>Windows:</strong> Exposed through MSAA/IAccessible2 and UI Automation.</li>
+            <li><strong>macOS:</strong> Exposed through NSAccessibility.</li>
+            <li><strong>Linux:</strong> Exposed through AT-SPI/ATK.</li>
+        </ul>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Daniel Hung</p>
+    </footer>
+
+    <script>
+        function openNav() {
+            const nav = document.getElementById("mySidenav");
+            nav.style.width = "250px";
+            nav.setAttribute('aria-hidden', 'false');
+            document.querySelector('.openbtn').setAttribute('aria-expanded', 'true');
+            document.querySelector('.sidenav a').focus();
+        }
+
+        function closeNav() {
+            const nav = document.getElementById("mySidenav");
+            nav.style.width = "0";
+            nav.setAttribute('aria-hidden', 'true');
+            document.querySelector('.openbtn').setAttribute('aria-expanded', 'false');
+            document.querySelector('.openbtn').focus();
+        }
+    </script>
+</body>
+</html>
+
